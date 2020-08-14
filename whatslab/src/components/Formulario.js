@@ -2,6 +2,39 @@ import React from 'react';
 import styled from 'styled-components';
 import {Mensagem} from './Mensagem';
 
+const ChatContainer = styled.div`
+  width: 420px;
+  background-color: #eeb7ee;
+  margin: 0 auto;
+  height: 90vh;
+`
+const FormContainer = styled.div`
+  position: fixed;
+  bottom: 40px;
+  display: flex;
+  justify-content: space-around;
+  width: 400px;
+  margin-left: 10px;
+` 
+const Input = styled.input`
+  width: ${(props) => props.tamanho};
+  margin-right: 10px;
+  height: 20px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  padding: 5px;
+  box-shadow: 0px 0px 4px gray;
+`
+const Button = styled.button`
+  height: 30px;
+  border: 1px solid gray;
+  outline: none;
+  border-radius: 5px;
+  padding: 5px;
+  box-shadow: 0px 0px 4px gray;
+`
+
 export class Formulario extends React.Component {
   state = {
     msg: [
@@ -41,22 +74,24 @@ export class Formulario extends React.Component {
       );
     });
     return (
-      <div className='chat-container'>
+      <ChatContainer>
         {mensagens}
-        <div className="formulario-container">
-          <input
+        <FormContainer>
+          <Input
             value={this.state.usuario}
             onChange={this.onChangeUsuario}
             placeholder={'Usuário'}
+            tamanho={'90px'}
           />
-          <input
+          <Input
             value={this.state.mensagem}
             onChange={this.onChangeMensagem}
             placeholder={'Mensagem'}
+            tamanho={'225px'}
           />
-          <button onClick={this.enviarMensagem}>Enviar</button>
-        </div>
-      </div>
+          <Button onClick={this.enviarMensagem}>Enviar</Button>
+        </FormContainer>
+      </ChatContainer>
     )
   }
 }
