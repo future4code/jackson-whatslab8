@@ -1,26 +1,24 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import styled from 'styled-components';
+import {Formulario} from './components/Formulario';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Estudo
-        </a>
-      </header>
-    </div>
-  );
+const AppContainer = styled.div`
+  width: 440px;
+  background: gray;
+  margin: auto;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  border-radius: 20px;
+`
+
+class App extends React.Component{
+  render() {
+    return (
+      <AppContainer>
+        <Formulario/>
+      </AppContainer>
+    );
+  }
 }
-
 export default App;
