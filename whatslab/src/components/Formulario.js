@@ -47,12 +47,16 @@ export class Formulario extends React.Component {
     valorInputMensagem: ''
   }
   enviarMensagem = () => {
-    const novaMsg = {
-      usuario: this.state.valorInputUsuario,
-      mensagem: this.state.valorInputMensagem
-    }
-    const novasMsgs = [...this.state.msg, novaMsg];
-    this.setState({msg: novasMsgs});
+    if (this.state.valorInputUsuario === '' || this.state.valorInputMensagem === ''){
+      alert('Preencha todos os campos');
+    } else {
+      const novaMsg = {
+        usuario: this.state.valorInputUsuario,
+        mensagem: this.state.valorInputMensagem
+      }
+        const novasMsgs = [...this.state.msg, novaMsg];
+        this.setState({msg: novasMsgs});
+    };
   };
   onChangeUsuario = (event) => {
     this.setState({
